@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:themoviedb/Theme/app_button_style.dart';
+import 'package:themoviedb/main.dart';
+import 'package:themoviedb/widgets/main_screen/main_screen_widget.dart';
 
 class AuthWidget extends StatefulWidget {
   AuthWidget({Key? key}) : super(key: key);
@@ -42,7 +44,10 @@ class _HeaderWidget extends StatelessWidget {
           _FormWidget(),
           SizedBox(height: 25),
           Text(
-            'In order to use the editing and rating capabilities of TMDb, as well as get personal recommendations you will need to login to your account. If you do not have an account, registering for an account is free and simple.',
+            'In order to use the editing and rating capabilities of TMDb,'
+            ' as well as get personal recommendations you will need to '
+            'login to your account. If you do not have an account, '
+            'registering for an account is free and simple.',
             style: textStyle,
           ),
           SizedBox(height: 5),
@@ -85,9 +90,9 @@ class __FormWidgetState extends State<_FormWidget> {
     final password = _passwordTextController.text;
     if (login == 'admin' && password == 'admin') {
       errorText = null;
-      print('open app');
+      Navigator.of(context).pushReplacementNamed('/main_screen');
     } else {
-      Navigator.of(context).pushNamed('/dd');
+      //Navigator.of(context).pushNamed('/dd');
       errorText = 'Не верный логин или пароль';
     }
     setState(() {});
@@ -103,7 +108,7 @@ class __FormWidgetState extends State<_FormWidget> {
       fontSize: 16,
       color: Color(0xFF212529),
     );
-    final colorBlue = Color(0xFF01B4E4);
+    final colorBlue = const Color(0xFF01B4E4);
     final textFieldDecorator = const InputDecoration(
       border: OutlineInputBorder(
           borderSide: BorderSide(color: const Color(0xFF01B4E4))),
