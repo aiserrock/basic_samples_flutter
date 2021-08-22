@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:themoviedb/resources/resources.dart';
 
 class Movie {
+  final int id;
   final String imageName;
   final String title;
   final String time;
   final String description;
 
   Movie(
-      {required this.imageName,
+      {required this.id,
+      required this.imageName,
       required this.title,
       required this.time,
       required this.description});
@@ -25,6 +27,7 @@ class MovieListWidget extends StatefulWidget {
 class _MovieListWidgetState extends State<MovieListWidget> {
   final _movies = [
     Movie(
+      id: 1,
       imageName: AppImages.jungle,
       title: 'Minecraft Jungle',
       time: 'April 10 2012',
@@ -35,6 +38,7 @@ class _MovieListWidgetState extends State<MovieListWidget> {
           ' that will change the future of medicine.',
     ),
     Movie(
+      id: 2,
       imageName: AppImages.jungle,
       title: 'Marcianin',
       time: 'April 10 2012',
@@ -45,6 +49,7 @@ class _MovieListWidgetState extends State<MovieListWidget> {
           ' that will change the future of medicine.',
     ),
     Movie(
+      id: 3,
       imageName: AppImages.jungle,
       title: 'Total War',
       time: 'April 10 2012',
@@ -55,6 +60,7 @@ class _MovieListWidgetState extends State<MovieListWidget> {
           ' that will change the future of medicine.',
     ),
     Movie(
+      id: 4,
       imageName: AppImages.jungle,
       title: 'Stalker ||',
       time: 'April 10 2012',
@@ -65,6 +71,7 @@ class _MovieListWidgetState extends State<MovieListWidget> {
           ' that will change the future of medicine.',
     ),
     Movie(
+      id: 5,
       imageName: AppImages.jungle,
       title: 'Intersteiler',
       time: 'April 10 2012',
@@ -75,6 +82,7 @@ class _MovieListWidgetState extends State<MovieListWidget> {
           ' that will change the future of medicine.',
     ),
     Movie(
+      id: 6,
       imageName: AppImages.jungle,
       title: 'American Pie 1',
       time: 'April 10 2012',
@@ -85,6 +93,7 @@ class _MovieListWidgetState extends State<MovieListWidget> {
           ' that will change the future of medicine.',
     ),
     Movie(
+      id: 7,
       imageName: AppImages.jungle,
       title: 'American Pie 2',
       time: 'April 10 2012',
@@ -110,6 +119,14 @@ class _MovieListWidgetState extends State<MovieListWidget> {
       _filteredMovies = _movies;
     }
     setState(() {});
+  }
+
+  void _onMovieTap(int index) {
+    final id = _movies[index].id;
+    Navigator.of(context).pushNamed(
+      '/main_screen/movie_details',
+      arguments: id,
+    );
   }
 
   @override
@@ -210,9 +227,7 @@ class _MovieListWidgetState extends State<MovieListWidget> {
                     color: Colors.transparent,
                     child: InkWell(
                       borderRadius: BorderRadius.circular(10),
-                      onTap: () {
-                        print('11');
-                      },
+                      onTap: () => _onMovieTap(index),
                     ),
                   ),
                 ],
