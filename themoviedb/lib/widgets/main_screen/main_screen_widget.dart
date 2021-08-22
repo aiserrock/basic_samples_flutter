@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:themoviedb/movie_list/movie_list_widget.dart';
 
 class MainScreenWidget extends StatefulWidget {
   const MainScreenWidget({Key? key}) : super(key: key);
@@ -9,17 +10,6 @@ class MainScreenWidget extends StatefulWidget {
 
 class _MainScreenWidgetState extends State<MainScreenWidget> {
   int _selectedTab = 0;
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: News',
-    ),
-    Text(
-      'Index 1: Movies',
-    ),
-    Text(
-      'Index 2: Tv shows',
-    ),
-  ];
 
   void onSelectTab(int index) {
     if (_selectedTab == index) return;
@@ -34,8 +24,17 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
       appBar: AppBar(
         title: Text('TMDB'),
       ),
-      body: Center(
-        child: _widgetOptions[_selectedTab],
+      body: IndexedStack(
+        index: _selectedTab,
+        children: [
+          Text(
+            'Index 0: News',
+          ),
+          MovieListWidget(),
+          Text(
+            'Index 2: Tv shows',
+          ),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedTab,
