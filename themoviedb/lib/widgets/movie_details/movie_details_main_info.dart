@@ -8,3 +8,4 @@ class MovieDetailsMainInfoWidget extends StatelessWidget {
     return Container();
   }
 }
+//TODO ныкачать фотки с детейл пейджа и добавить radial виджет

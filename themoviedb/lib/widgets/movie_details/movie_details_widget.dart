@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'movie_details_main_info_widget.dart';
+import 'movie_details_main_info.dart';
 
 class MovieDetailsWidget extends StatefulWidget {
   final int movieId;
