@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'movie_details_main_info.dart';
+import 'movie_details_main_screen_cast_widget.dart';
 
 class MovieDetailsWidget extends StatefulWidget {
   final int movieId;
@@ -21,10 +22,15 @@ class _MovieDetailsWidgetState extends State<MovieDetailsWidget> {
       appBar: AppBar(
         title: Text('Minecraft Jungle'),
       ),
-      body: ListView(
-        children: [
-          MovieDetailsMainInfoWidget(),
-        ],
+      body: ColoredBox(
+        color: Color.fromRGBO(24, 21, 27, 1),
+        child: ListView(
+          children: [
+            MovieDetailsMainInfoWidget(),
+            SizedBox(height: 30,),
+            MovieDetailsMainScreenCastWidget(),
+          ],
+        ),
       ),
     );
   }
