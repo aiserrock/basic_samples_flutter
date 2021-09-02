@@ -1,3 +1,3 @@
 part 'images.dart';
 
-part 'svgs.dart';
+part 'svg_s.dart';

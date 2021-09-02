@@ -1,7 +1,7 @@
 part of 'resources.dart';
 
-class Svgs {
-  Svgs._();
+class Svg_s {
+  Svg_s._();
 
   static const String arrowRight = 'assets/icons/arrow_right.svg';
   static const String backIcon = 'assets/icons/Back ICon.svg';

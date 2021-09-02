@@ -6,9 +6,10 @@ import '../size_config.dart';
 class DefaultButton extends StatelessWidget {
   const DefaultButton({
     Key? key,
-    required this.text,
+    required this.text, required this.press,
   }) : super(key: key);
   final String text;
+  final Function()? press;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class DefaultButton extends StatelessWidget {
           ),
           backgroundColor: MaterialStateProperty.all(kPrimaryColor),
         ),
-        onPressed: (){},
+        onPressed: press,
         child: Text(
           text,
           style: TextStyle(
