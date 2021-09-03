@@ -4,6 +4,8 @@ import 'package:shop/components/default_button.dart';
 import 'package:shop/components/form_error.dart';
 import 'package:shop/components/social_card.dart';
 import 'package:shop/resources/resources.dart';
+import 'package:shop/screens/forgot_password/forgot_password_screen.dart';
+import 'package:shop/screens/login_sucsess/login_sucsess_screen.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
@@ -53,9 +55,13 @@ class _SignFormState extends State<SignForm> {
               ),
               Text('Remember me'),
               Spacer(),
-              Text(
-                'Forgot Password',
-                style: TextStyle(decoration: TextDecoration.underline),
+              GestureDetector(
+                onTap: () => Navigator.pushNamed(
+                    context, ForgotPasswordScreen.routeName),
+                child: Text(
+                  'Forgot Password',
+                  style: TextStyle(decoration: TextDecoration.underline),
+                ),
               )
             ],
           ),
@@ -68,6 +74,7 @@ class _SignFormState extends State<SignForm> {
               if (_formKey.currentState != null) {
                 if (_formKey.currentState!.validate()) {
                   _formKey.currentState!.save();
+                  Navigator.pushNamed(context, LoginSuccessScreen.routeName);
                 }
               }
             },
@@ -98,10 +105,12 @@ class _SignFormState extends State<SignForm> {
             setState(() {
               errors.add(kPassNullError);
             });
+            return '';
           } else if (value.length < 8 && !errors.contains(kShortPassError)) {
             setState(() {
               errors.add(kShortPassError);
             });
+            return '';
           }
         }
         return null;
@@ -140,11 +149,13 @@ class _SignFormState extends State<SignForm> {
             setState(() {
               errors.add(kEmailNullError);
             });
+            return '';
           } else if (!emailValidatorRegExp.hasMatch(value) &&
               !errors.contains(kInvalidEmailError)) {
             setState(() {
               errors.add(kInvalidEmailError);
             });
+            return '';
           }
         }
         return null;

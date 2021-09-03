@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:shop/components/no_account_text.dart';
 import 'package:shop/components/social_card.dart';
 import 'package:shop/resources/resources.dart';
+import 'package:shop/screens/forgot_password/forgot_password_screen.dart';
 import 'package:shop/screens/sign_in/components/sign_form.dart';
 import 'package:shop/size_config.dart';
 
@@ -51,21 +53,7 @@ class Body extends StatelessWidget {
                 ],
               ),
               SizedBox(height: SizeConfig.screenHeight! * 0.08,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Don\'t have an account?',
-                    style: TextStyle(
-                        fontSize: SizeConfig.getProportionateScreenWidth(16)),
-                  ),
-                  Text(
-                    'Sign Up',
-                    style: TextStyle(
-                        fontSize: SizeConfig.getProportionateScreenWidth(16)),
-                  ),
-                ],
-              ),
+              NoAccountText(),
               SizedBox(height: SizeConfig.screenHeight! * 0.08,),
             ],
           ),
@@ -74,3 +62,4 @@ class Body extends StatelessWidget {
     );
   }
 }
+
