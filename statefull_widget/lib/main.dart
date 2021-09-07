@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:multi_widget/widget.dart';
+import 'package:statefull_widget/widget.dart';
 
 void main() {
   runApp(MyApp());
